@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bitcoin</title>
+    <style>
+        span {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bitcoin Current Price is:
+        <span id="price"></span>
+    </h1>
+    <input type="radio" name="currency" value="EUR" checked>in Euro
+    <br>
+    <input type="radio" name="currency" value="USD">in US Dollar
+    <br>
+    <input type="radio" name="currency" value="GBP">in British Pounds
+    <br>
+    <button id="btn">Get Data</button>
+
+    <script>
+        var price = document.getElementById("price");
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click", function () {
+            var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+            fetch(url).then(function (response) {
+                return checkResponse(response).json();
+            }).then(function (data) {
+                console.log(data);
+                myLogic(data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            function myLogic(data) {
+                let activeCurrency = document.querySelector('input[name = "currency"]:checked').value;
+                let currPrice = data.bpi[activeCurrency].rate;
+                console.log(currPrice);
+                price.innerText = currPrice + " " + activeCurrency;
+            }
+
+            function checkResponse(response) {
+                if (!response.ok) {
+                    throw Error("Response wasn't ok!");
+                }
+                return response;
+            }
+        });
+    </script>
+</body>
+
+</html>

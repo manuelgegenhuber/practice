@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body{
+    display: flex;
+}
+
+.container{
+  margin: 0 auto;
+  width: 250px;
+  padding: 15px;
+  border-radius: 5%;
+}
+
+.error-container{
+    background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+}
+
+.success-container{
+    background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);
+}
+
+.message-box{
+  width: 100%;
+  text-align: center;
+  font-family:lato, sans-serif;
+  background: transparent;
+}
+
+.message-box h1{
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.message-box p{
+  color: #565656;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+.face{
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #565656;
+  transform-origin: bottom;
+  display: flex;
+  background: #ffffff;
+}
+
+.face-sad{
+  transform: rotate(-15deg);
+    animation: error-face 2s infinite linear;
+}
+
+.face-happy{
+    animation: success-face 4s infinite linear;
+}
+
+.eye{
+  width: 5px;
+  height: 5px;
+  background: black;
+  position: relative;
+  margin: 0 auto;
+  top: 30%;
+  border-radius: 50%;
+}
+
+.mouth{
+  width: 5px;
+  height: 5px;
+  border: 2px solid;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  margin: 0px auto;
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+
+.sad-smile{
+  border-color: black transparent transparent black;
+}
+
+.happy-smile{
+  border-color: transparent black black transparent;
+}
+
+.shadow{
+  width: 40px;
+  height: 10px;
+  margin: 0 auto;
+  background: black;
+  border-radius: 50%;
+  margin-top: 3px;
+  opacity: 0.3;
+}
+
+.shadow-error{
+    animation: error-shadow 4s infinite linear;
+}
+
+.shadow-success{
+    transform: scaleX(1);
+    animation: success-shadow 2s infinite linear;
+}
+
+@keyframes error-face{
+  50%{
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes success-face{
+    0%{
+      transform: translateY(-5px);
+    }
+    25%{
+      transform: translateY(5px);
+    }
+    50%{
+      transform: translateY(-5px);
+    }
+    75%{
+      transform: translateY(5px);
+    }
+    100%{
+      transform: translateY(-5px);
+    }
+  }
+
+@keyframes error-shadow{
+    0%{
+      transform: translateX(-5px);
+    }
+    25%{
+      transform: translateX(5px);
+    }
+    50%{
+      transform: translateX(-5px);
+    }
+    75%{
+      transform: translateX(5px);
+    }
+    100%{
+      transform: translateX(-5px);
+    }
+  }
+
+@keyframes success-shadow{
+    50%{
+      transform: scaleX(1.2);
+    }
+  }

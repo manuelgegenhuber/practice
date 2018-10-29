@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+</head>
+<body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine-html.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/boot.js"></script>
+    <script>
+        function doubleValues(arr){
+  let newArr = [];
+  arr.forEach(function(val){
+    newArr.push(val * 2);
+  });
+  return newArr;
+}
+
+function onlyEvenValues(arr){
+  let newArr = [];
+  arr.forEach(function(val){
+    if(val % 2 === 0){
+      newArr.push(val);
+    }
+  });
+  return newArr;
+}
+
+function showFirstAndLast(arr){
+  let newArr = [];
+  
+  arr.forEach(function(val){ 
+    newArr.push((val.slice(0,1) + val.slice(-1)).toLowerCase());
+  });
+  return newArr;
+}
+
+function addKeyAndValue(arr,key,value){
+  let newArr = [];
+  
+  arr.forEach(function(val){
+    let newObject = val;
+    /*add new Poperty with value to an existing Object*/
+    newObject[key] = value;
+    newArr.push(newObject);
+  });
+  
+    return newArr;
+}
+
+function vowelCount(str){
+  let strArr = str.toLowerCase().split("");
+  let vowels = "aieou";
+  let returnObject = {};
+  
+  strArr.forEach(function(val){
+    if(vowels.indexOf(val) !== -1){
+      if(val in returnObject){
+        returnObject[val]++;
+        console.log(returnObject);
+      }else{
+        returnObject[val] = 1;
+      }
+    }
+  });
+  return returnObject;
+}
+
+                 
+                 
+                 
+/*TDD*/
+function tests(){
+  
+  describe("Array", function(){
+ 
+    describe("Values are", function(){
+      const testArr = [1,2,3,4,5];
+    
+      beforeEach(function(){
+        this.testArr = [1,2,3,4,5];
+      });
+      
+      it("doubled", function(){
+        expect(doubleValues(testArr)).toEqual([2,4,6,8,10]);
+      });
+      
+      it("only even", function(){
+        expect(onlyEvenValues(testArr)).toEqual([2,4]);
+      });
+      
+    });
+    
+    describe("Values (Strings) of Array manipulated ", function(){
+      const testArr = ['cOlt','ManuEl','Peter'];
+    
+      beforeEach(function(){
+        this.testArr = ['colt','manuel','peter'];
+      });
+      
+      it("to first and last letter", function(){
+        expect(showFirstAndLast(testArr)).toEqual(['ct','ml','pr']);
+      });
+    });
+    
+    describe("Assoc Array", function(){
+      const testArr = [{name: 'Elli'},{name: 'manuel'},{name: 'Peter'}];
+    
+      afterEach(function(){
+        this.testArr = [{name: 'Elli'},{name: 'manuel'},{name: 'Peter'}];
+      });
+      
+      it("to add new key/value pair", function(){
+        const expectArr = [{name: 'Elli', title:'instructor'}, {name: 'manuel', title:'instructor'}, {name: 'Peter',title:'instructor'}]
+        expect(addKeyAndValue(testArr,'title', 'instructor')).toEqual(expectArr);
+      });
+    });
+  });
+  
+  describe("String", function(){
+    it("Vowel count", function(){
+      const str = "I Am awesome and so are you";
+      expect(vowelCount(str)).toEqual({i: 1, a: 4, e: 3, o: 3, u: 1});
+    });
+  });
+}
+
+tests();
+    </script>
+</body>
+</html>

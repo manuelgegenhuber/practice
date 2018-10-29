@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SSDoku-Template</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!--CSS Styling-->
+    <style>
+            @import url("https://fonts.googleapis.com/css?family=Raleway");
+            /*body is for testing purposes*/
+            /*body {
+                padding-left: 13%;
+                padding-right: 13%;
+            }*/
+    
+            /*IE11 Media Query because IE is sh*t*/
+    
+            @media screen and (-ms-high-contrast: active),
+            (-ms-high-contrast: none) {
+                .secondCell,
+                .firstCell {
+                    padding: 20px;
+                    max-width: 600px;
+                }
+            }
+    
+            .container {
+                font-family: raleway, ;
+                width: 100%;
+                /*background: linear-gradient(to bottom right, #0079b2 40%, #04a9f7 100%);*/
+            }
+    
+            h1 {
+                margin: 0 auto;
+                text-align: center;
+                color: black;
+            }
+    
+            table {
+                margin: 0 auto;
+                max-width: inherit;
+            }
+    
+            .secondCell,
+            .firstCell {
+                padding: 20px;
+            }
+    
+            .secondCell {
+                -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            }
+    
+            code {
+                color: black;
+                background-color: transparent;
+            }
+    
+            @media only screen and (max-width: 1000px) {
+                .tableRow {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    margin-top: 20px;
+                }
+                .firstCell {
+                    font-size: 18px;
+                    color: white;
+                    padding: 5px;
+                    background: -webkit-gradient(linear, left top, right bottom, color-stop(40%, #ad0115), to(#E2001A));
+                    background: -webkit-linear-gradient(top left, #ad0115 40%, #E2001A 100%);
+                    background: -o-linear-gradient(top left, #ad0115 40%, #E2001A 100%);
+                    background: linear-gradient(to bottom right, #ad0115 40%, #E2001A 100%);
+                }
+                .secondCell {
+                    background-color: #f1f1f1;
+                }
+            }
+    
+            @media only screen and (min-width: 1001px) {
+                .tableRow {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: row;
+                    flex-direction: row;
+                    -ms-flex-pack: distribute;
+                    justify-content: space-around;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    margin-top: 40px;
+                }
+    
+                .tableRow:nth-child(even) {
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: reverse;
+                    -ms-flex-direction: row-reverse;
+                    flex-direction: row-reverse;
+                    background-color: #f1f1f1;
+                    padding: 20px;
+                }
+    
+                .tableRow:nth-child(even)>.secondCell {
+                    background-color: #fff;
+                }
+    
+                .tableRow:nth-child(odd)>.secondCell {
+                    background-color: #f1f1f1;
+                }
+    
+                .firstCell {
+                    font-size: 25px;
+                    color: black;
+                    text-align: center;
+                    line-height: 350px;
+                    font-weight: bold;
+                    display: block;
+                }
+    
+                .firstCell,
+                .secondCell {
+                    width: 45%;
+                    min-height: 350px;
+                }
+    
+                .secondCell {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                }
+            }
+        </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Überschrift</h1>
+        <table>
+            <!-- Normal Entry -->
+            <tr class="tableRow">
+                <td class="firstCell">Beschreibung Allgemein</td>
+                <td class="secondCell">
+                    <p>
+                        Here comes some random Text
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam repellat eveniet sint vitae.
+                        Quasi porro quod, maiores repudiandae, non sunt rerum exercitationem officiis, quaerat tenetur deleniti?
+                        Et ullam quibusdam provident error vero porro magni reprehenderit! Culpa beatae animi illo ipsum
+                        libero dolorum aut, ipsa laboriosam distinctio esse expedita aspernatur ab.
+                    </p>
+                </td>
+            </tr>
+
+            <tr class="tableRow">
+                <td class="firstCell">Whatever comes here</td>
+                <td class="secondCell">
+                    <p>
+                        This is another Description of something.
+                    </p>
+                </td>
+            </tr>
+
+            <!-- Code Entry -->
+            <tr class="tableRow">
+                <td class="firstCell">Request Datenstruktur</td>
+                <td class="secondCell">
+                    <p>
+                        <code>
+                            &lt;div&gt;display code&lt;div&gt;
+                        </code>
+                    </p>
+                </td>
+            </tr>
+
+            <tr class="tableRow">
+                <td class="firstCell">Whatever comes here</td>
+                <td class="secondCell">
+                    <p>
+                        This is another Description of something.
+                    </p>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

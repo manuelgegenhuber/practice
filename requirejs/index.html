@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RequireJs</title>
+
+    <link rel="stylesheet" href="scripts/lib/uikit/css/uikit.css">
+
+    <!--This sets the baseUrl to the "scripts" directory, and
+    loads a script that will have a module ID of 'main'-->
+    <script data-main="scripts/config.js" src="scripts/require.js"></script>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        #myDiv{
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiv" class="someClass"></div>
+    <div class="someClass"></div>
+    <div class="someClass"></div>
+    <p id="displayText"></p>
+</body>
+
+</html>
